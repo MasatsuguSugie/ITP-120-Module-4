@@ -1,0 +1,81 @@
+package itp120mod4;
+
+import java.text.NumberFormat;
+
+public class Inventory{
+	private int inventoryId;
+	private String itemName;
+	private int numInStock;
+	private double priceEach;
+	private Supplier supplier;
+	
+	private static int nextNum=1000;
+	NumberFormat money = NumberFormat.getCurrencyInstance();
+	
+	
+	public Inventory(){
+		inventoryId=nextNum;
+		nextNum++;
+	}
+	
+	public Inventory(String itemName, int numInStock, double priceEach,Supplier supplier){
+		inventoryId=nextNum;
+		nextNum++;
+		this.itemName = itemName;
+		this.numInStock = numInStock;
+		this.priceEach = priceEach;
+		this.supplier = supplier;
+	}
+	
+	public String toString(){
+		return itemName + " with id of " + inventoryId + " has " + numInStock + " number in stock with a price each of " 
+				+ money.format(priceEach) + " and a total value of " + money.format(totalValue()) + 
+				" The item comes from " + supplier.toString();
+	}
+	
+	public double totalValue(){
+		return numInStock * priceEach;
+	}
+
+	public int getInventoryId() {
+		return inventoryId;
+	}
+
+	public void setInventoryId(int inventoryId) {
+		this.inventoryId = inventoryId;
+	}
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+	public int getNumInStock() {
+		return numInStock;
+	}
+
+	public void setNumInStock(int numInStock) {
+		this.numInStock = numInStock;
+	}
+
+	public double getPriceEach() {
+		return priceEach;
+	}
+
+	public void setPriceEach(double priceEach) {
+		this.priceEach = priceEach;
+	}
+
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+	
+	
+}
