@@ -1,0 +1,45 @@
+package itp120mod4;
+
+import java.util.Scanner;
+
+public class NurseryDriver{
+	
+	public static void main(String[] arg){
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("What is the supplier id?");
+		int id = scan.nextInt();
+		
+		System.out.println("What is the supplier's name?");
+		scan.nextLine();
+		String name = scan.nextLine();
+		
+		System.out.println("What is the supplier's phone number?");
+		String phone = scan.nextLine();
+		
+		Supplier supp = new Supplier(id,name,phone);
+		
+		System.out.println("Let's get the items from this supplier.  How many are there?");
+		int count = scan.nextInt();
+		
+		for (int i = 0; i < count; i++)
+		{
+			System.out.println("What is the nursery item's name for item #" + (i+1));
+			scan.nextLine();
+			String itemName = scan.nextLine();
+			
+			System.out.println("How many are in stock?");
+			int itemStock = scan.nextInt();
+			System.out.println("How much does each cost?");
+			double itemCost = scan.nextDouble();
+			
+			Inventory newInv = new Inventory(itemName,itemStock,itemCost,supp);
+			
+			System.out.println(newInv.toString());
+		}
+		
+		
+	}
+	
+	
+}
