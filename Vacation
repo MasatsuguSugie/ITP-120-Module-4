@@ -1,0 +1,67 @@
+package itp120mod4;
+
+import java.text.NumberFormat;
+
+public class Vacation{
+	private String vacationName;
+	private int numSold;
+	private double priceEach;
+	
+	NumberFormat money = NumberFormat.getCurrencyInstance();
+	public Vacation()
+	{
+		
+	}
+	
+	public Vacation(String vacationName, double priceEach)
+	{
+		this.vacationName = vacationName;
+		this.priceEach = priceEach;
+		numSold = 0;
+	}
+	
+	
+	public void updateSales(int vacs){
+		numSold += vacs;		
+	}
+	
+	public double totalValue(){
+		return numSold * priceEach;		
+	}
+	
+	public String toString(){
+		
+		return  numSold + " trips to '" + vacationName 
+				+ "' were sold for " + money.format(priceEach) + 
+				" each for a total value of " + money.format(totalValue());
+	}
+	
+
+	public String getVacationName() {
+		return vacationName;
+	}
+
+	public void setVacationName(String vacationName) {
+		this.vacationName = vacationName;
+	}
+
+	public int getNumSold() {
+		return numSold;
+	}
+
+	public void setNumSold(int numSold) {
+		this.numSold = numSold;
+	}
+
+	public double getPriceEach() {
+		return priceEach;
+	}
+
+	public void setPriceEach(double priceEach) {
+		this.priceEach = priceEach;
+	}
+	
+	
+	
+	
+}
