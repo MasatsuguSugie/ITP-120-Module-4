@@ -1,0 +1,54 @@
+package itp120mod4;
+
+public class Supplier{
+	private int supplierId;
+	private String companyName;
+	private String phone;
+	
+	
+	public Supplier(){
+		
+		
+	}
+	
+	public Supplier(int supplierId, String companyName, String phone){
+		this.supplierId = supplierId;
+		this.companyName = companyName;
+		this.phone = phone;
+		
+	}
+	
+	public String toString(){
+		return companyName + " with an ID of " + supplierId + " has a phone number of " + phone;
+	}
+
+	public int getSupplierId() {
+		return supplierId;
+	}
+
+	public void setSupplierId(int supplierId) {
+		this.supplierId = supplierId;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+	
+	
+	
+	
+	
+}
