@@ -1,0 +1,160 @@
+package itp120mod4;
+/*Write a class named Quote with a single instance variable named quote that is a String. 
+ *  Write the no-argument and full constructor and the getter and setter.   
+ *  
+ *   The class should also have methods returns the following:
+ï¿½	a. The number of characters in the quote
+ï¿½	b. The quote in all uppercase letters
+ï¿½	c. The quote in all lowercase letters
+ï¿½	d. The first character in the quote
+ï¿½	e. the number of vowels in the string 
+ï¿½	f. the number of consonants in the string.
+ï¿½	g. A method that asks the user to enter a character. 
+The program should count and return the number of times that the specified character appears in the string.
+
+*/
+import java.util.Scanner;
+public class Quote{
+	
+	//put in your instance variable and constructors here
+	private String quote;
+	
+	public Quote()
+	{
+		
+	}
+	
+	public Quote(String quote)
+	{
+		this.quote = quote;
+	}
+	
+	//put your getter and setter at the bottom
+	
+	
+	
+	// The following are called stub methods.  They essentially have the signature and a set of braces.
+	// To avoid red Xs, there is a place holder return line (I am returning the data type that I promised in the signature
+	// remove these lines after you add your code.
+	
+	//NOTE: Look at the UML diagram for the class (in the Module Specific Goodies in the sample output).  
+	// Study how my signatures below match the UML diagram for the methods.
+	
+	//a. The number of characters in the quote
+	public int numChars(){
+		// you code this
+		return quote.length();
+	}
+	
+	//b. The quote in all uppercase letters
+	public String upper() {
+		//you code this
+		return quote.toUpperCase();
+	}
+	
+	//The quote in all lowercase letters
+	public String lower() {
+		//you code this
+		return quote.toLowerCase();
+	}
+	
+	//d. The first character in the quote
+	public char firstChar(){
+		// you code this
+		return quote.charAt(0);
+	}
+	
+	//e. the number of vowels in the string
+	public int numVowels() {
+		int numVowel = 0;
+		String quoteTemp;
+		quoteTemp = quote.toLowerCase();
+		
+		// set up a counter for the number of vowels and set it to zero
+		for (int count = quote.length() - 1; count >= 0; count--)
+		{
+			char current = quoteTemp.charAt(count);
+				if(current == 'a'|| current == 'e' || 
+						current == 'i' || current == 'o' 
+						|| current == 'u' || current == 'y')
+				{ numVowel +=1;}
+		}
+		return numVowel;
+	}
+	
+	//f. the number of consonants in the string.
+	public int numCons() {
+		int numCon = 0;
+		int numLet=0;
+		String quoteTemp;
+		quoteTemp = quote.toLowerCase();
+		
+		
+		for (int count = quote.length() - 1; count >= 0; count--)
+		{
+			char c = quoteTemp.charAt(count);
+			if(Character.isLetter(c) == true )
+				numLet++;
+					
+		}
+		numCon = numLet - numVowels();
+		return numCon;
+		
+	}
+	
+	/* another way to do it
+	 * public int numCons() {
+		// you code this
+		//return 0;
+		int consonants = 0;
+		for (int i=0; i < quote.length(); i++)
+		{
+			char ch = quote.charAt(i);
+			
+			if(ch == 'b' || ch == 'B' || ch == 'c' || ch == 'C' || ch == 'd' || ch == 'D' || 
+					ch == 'f' || ch == 'F' || ch == 'g' || ch == 'G' || ch == 'h' || ch == 'H' || 
+					ch == 'j' || ch == 'J' || ch == 'k' || ch == 'K' || ch == 'l' || ch == 'L' || 
+					ch == 'm' || ch == 'M' || ch == 'n' || ch == 'N' || ch == 'p' || ch == 'P' || 
+					ch == 'q' || ch == 'Q' || ch == 'r' || ch == 'R' || ch == 's' || ch == 'S' || 
+					ch == 't' || ch == 'T' || ch == 'v' || ch == 'V' || ch == 'w' || ch == 'W' || 
+					ch == 'x' || ch == 'X' || ch == 'z' || ch == 'Z')
+						consonants ++;
+		}
+		return consonants;
+		
+	}
+	*/
+	
+	
+	//g. A method that asks the user to enter a character. 
+	//The program should count and return the number of times that the specified character appears in the string.
+	public int numTimes(char what){
+		char c = what;
+		int occur = 0;
+		String quoteTemp = quote;
+		
+		for (int count = quote.length() - 1; count >= 0; count--)
+		{
+			if (quoteTemp.charAt(count) == c)
+				occur += 1;
+				
+		}
+		// you code this
+		return occur;
+			
+	}
+	
+	
+
+	public String getQuote() {
+		return quote;
+	}
+
+	public void setQuote(String quote) {
+		this.quote = quote;
+	}
+
+	
+	
+
+}
